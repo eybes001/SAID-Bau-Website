@@ -1,0 +1,6 @@
+# Deployment Status
+- Date: 25 May 2026
+- Status: Clean Static Site Deployment
+- Files: All website files deployed to /public_html/
+- WordPress: Removed
+- Email: info@saidbau.com
