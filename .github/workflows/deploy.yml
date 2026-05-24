@@ -9,18 +9,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+      - name: Clone repository
+        run: |
+          git clone --depth 1 https://github.com/eybes001/SAID-Bau-Website.git /tmp/repo
+          cd /tmp/repo
 
       - name: Set up FTP deployment
         run: |
-          # Install required FTP tools
           sudo apt-get update -qq
           sudo apt-get install -y -qq lftp curl
           echo "✓ FTP tools installed successfully"
@@ -44,7 +41,7 @@ jobs:
           set ftp:passive-mode on
           
           open -u $FTP_USER,$FTP_PASS $FTP_HOST
-          lcd /home/runner/work/SAID-Bau-Website/SAID-Bau-Website
+          lcd /tmp/repo
           cd /public_html
           mirror -eRvL --exclude-glob .git* --exclude-glob .github* --exclude-glob node_modules* ./ ./
           quit
