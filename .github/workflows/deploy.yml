@@ -92,6 +92,9 @@ jobs:
           echo "  - Branch: main"
           echo "  - Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
           echo "✓ Files have been deployed to your WordPress site"
+          echo ""
+          echo "📋 Files deployed:"
+          find /tmp/repo -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.json" \) | head -20
 
       - name: Deployment notification
         if: success()

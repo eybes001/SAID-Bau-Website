@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="200" height="150">
+  <!-- Background -->
+  <rect width="400" height="300" fill="white"/>
+  
+  <!-- Orange door frame (left) -->
+  <path d="M 40 80 L 120 80 L 120 200 L 60 200 L 60 120 L 40 120 Z" fill="none" stroke="#E67E22" stroke-width="20" stroke-linejoin="round"/>
+  
+  <!-- Blue house outline (middle) -->
+  <path d="M 150 140 L 220 80 L 290 140 L 290 200 L 150 200 Z" fill="none" stroke="#2C5AA0" stroke-width="18" stroke-linejoin="round"/>
+  
+  <!-- Blue rectangle (left part of house) -->
+  <rect x="150" y="120" width="50" height="80" fill="none" stroke="#2C5AA0" stroke-width="18"/>
+  
+  <!-- Orange windows -->
+  <rect x="210" y="120" width="15" height="15" fill="#E67E22"/>
+  <rect x="235" y="120" width="15" height="15" fill="#E67E22"/>
+  <rect x="210" y="150" width="15" height="15" fill="#E67E22"/>
+  <rect x="235" y="150" width="15" height="15" fill="#E67E22"/>
+</svg>
