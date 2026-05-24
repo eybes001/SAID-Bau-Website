@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unsere Projekte - Galerie mit 700+ Vorher-Nachher Renovierungen">
+  <meta name="keywords" content="Projekte, Galerie, Renovierung, Vorher-Nachher">
+  
+  <title>Projekte - SAID Bau</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        🏗️ SAID Bau
+      </a>
+      
+      <ul class="navbar-nav">
+        <li><a href="index.html" data-i18n="home">Startseite</a></li>
+        <li><a href="about.html" data-i18n="about">Über Uns</a></li>
+        <li><a href="services.html" data-i18n="services">Dienstleistungen</a></li>
+        <li><a href="projects.html" class="active" data-i18n="projects">Projekte</a></li>
+        <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <select id="languageSelector" class="language-selector">
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+        </select>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="padding: 4rem 0;">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="projects_page_title">Unsere Projekte</h1>
+        <p class="subtitle" data-i18n="projects_page_text">Erkunden Sie unsere Vorher-Nachher-Galerie mit über 700 realisierten Projekten</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section class="section">
+    <div class="container">
+      <!-- FILTER BUTTONS -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" onclick="window.SAID_BAU.filterProjects('all')" data-i18n="filter_all">Alle</button>
+        <button class="filter-btn" onclick="window.SAID_BAU.filterProjects('interior')" data-i18n="project_interior">Innenraum</button>
+        <button class="filter-btn" onclick="window.SAID_BAU.filterProjects('bathroom')" data-i18n="project_bathroom">Bad</button>
+        <button class="filter-btn" onclick="window.SAID_BAU.filterProjects('kitchen')" data-i18n="project_kitchen">Küche</button>
+        <button class="filter-btn" onclick="window.SAID_BAU.filterProjects('flooring')" data-i18n="project_flooring">Bodenbelag</button>
+      </div>
+
+      <!-- GALLERY GRID -->
+      <div class="gallery-container">
+        
+        <!-- Project 1 - Bathroom -->
+        <div class="project-card fade-in" data-category="bathroom">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Badezimmer-Renovierung Berlin-Mitte</h3>
+            <span class="project-category" data-i18n="project_bathroom">Bad</span>
+            <p class="project-desc">Komplette Modernisierung mit neuer Sanitär und hochwertigen Fliesen</p>
+          </div>
+        </div>
+
+        <!-- Project 2 - Interior -->
+        <div class="project-card fade-in" data-category="interior">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Wohnungsrenovierung München-Schwabing</h3>
+            <span class="project-category" data-i18n="project_interior">Innenraum</span>
+            <p class="project-desc">Vollständige Innengestaltung mit modernem Design und neuen Bodenbelägen</p>
+          </div>
+        </div>
+
+        <!-- Project 3 - Kitchen -->
+        <div class="project-card fade-in" data-category="kitchen">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Kücheninstallation Frankfurt am Main</h3>
+            <span class="project-category" data-i18n="project_kitchen">Küche</span>
+            <p class="project-desc">Neue Kücheneinbau mit modernen Geräten und hochwertigen Materialien</p>
+          </div>
+        </div>
+
+        <!-- Project 4 - Flooring -->
+        <div class="project-card fade-in" data-category="flooring">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Bodenbelag-Installation Hamburg</h3>
+            <span class="project-category" data-i18n="project_flooring">Bodenbelag</span>
+            <p class="project-desc">Parkett und Fliesenbelegung für Wohnbereich und Flur</p>
+          </div>
+        </div>
+
+        <!-- Project 5 - Bathroom -->
+        <div class="project-card fade-in" data-category="bathroom">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Badezimmer-Sanierung Köln</h3>
+            <span class="project-category" data-i18n="project_bathroom">Bad</span>
+            <p class="project-desc">Moderne Badausstattung mit Dusche und Whirlwanne</p>
+          </div>
+        </div>
+
+        <!-- Project 6 - Interior -->
+        <div class="project-card fade-in" data-category="interior">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Innensanierung Düsseldorf</h3>
+            <span class="project-category" data-i18n="project_interior">Innenraum</span>
+            <p class="project-desc">Komplette Umgestaltung mit neuer Ausstattung und Dekoration</p>
+          </div>
+        </div>
+
+        <!-- Project 7 - Kitchen -->
+        <div class="project-card fade-in" data-category="kitchen">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Küchenrenovierung Stuttgart</h3>
+            <span class="project-category" data-i18n="project_kitchen">Küche</span>
+            <p class="project-desc">Moderne L-Küche mit Inselblock und neuer Elektroinstallation</p>
+          </div>
+        </div>
+
+        <!-- Project 8 - Flooring -->
+        <div class="project-card fade-in" data-category="flooring">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1556909114-f6a7ad7d3136?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Fliesenbelegung Nürnberg</h3>
+            <span class="project-category" data-i18n="project_flooring">Bodenbelag</span>
+            <p class="project-desc">Hochwertige Natursteinfliesen in Wohn- und Schlafbereich</p>
+          </div>
+        </div>
+
+        <!-- Project 9 - Bathroom -->
+        <div class="project-card fade-in" data-category="bathroom">
+          <div class="project-image-wrapper">
+            <div class="before-after-slider">
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Vorher" class="before-img">
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=300&fit=crop" alt="Nachher" class="after-img">
+              <div class="slider-label before-label" data-i18n="before">Vorher</div>
+              <div class="slider-label after-label" data-i18n="after">Nachher</div>
+              <div class="slider-handle"></div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Badsanierung Hannover</h3>
+            <span class="project-category" data-i18n="project_bathroom">Bad</span>
+            <p class="project-desc">Barrierefreies Badezimmer mit bodengleicher Dusche</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Unsere Erfolgsgeschichte</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="service-card fade-in" style="text-align: center;">
+          <div class="service-card-icon" style="font-size: 3rem;">700+</div>
+          <h3>Abgeschlossene Projekte</h3>
+          <p>Erfolgreiche Renovierungen in ganz Deutschland</p>
+        </div>
+
+        <div class="service-card fade-in" style="text-align: center;">
+          <div class="service-card-icon" style="font-size: 3rem;">15+</div>
+          <h3>Jahre Erfahrung</h3>
+          <p>Bewährte Expertise und Zuverlässigkeit</p>
+        </div>
+
+        <div class="service-card fade-in" style="text-align: center;">
+          <div class="service-card-icon" style="font-size: 3rem;">100%</div>
+          <h3>Kundenzufriedenheit</h3>
+          <p>Garantierte Qualität und Service</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="container">
+    <div class="cta-section">
+      <h2>Sehen Sie Ihre Transformation</h2>
+      <p>Kontaktieren Sie uns für ein kostenloses Angebot und starten Sie Ihr Revovierungsprojekt</p>
+      <a href="contact.html" class="btn btn-accent" style="font-size: 1.1rem; padding: 14px 32px;" data-i18n="requestQuote">Angebot anfordern</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 data-i18n="footer_company">SAID Bau</h3>
+          <p data-i18n="footer_address">Deutschland</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem;">Professionelle Renovierungsdienstleistungen seit über 15 Jahren</p>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="home">Navigation</h3>
+          <ul>
+            <li><a href="index.html" data-i18n="home">Startseite</a></li>
+            <li><a href="about.html" data-i18n="about">Über Uns</a></li>
+            <li><a href="services.html" data-i18n="services">Dienstleistungen</a></li>
+            <li><a href="projects.html" data-i18n="projects">Projekte</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="contact">Kontakt</h3>
+          <ul>
+            <li><strong data-i18n="footer_phone">Telefon</strong>: +49 (0) 123 456789</li>
+            <li><strong data-i18n="footer_email">E-Mail</strong>: <a href="mailto:info@said-bau.de">info@said-bau.de</a></li>
+            <li style="margin-top: 1rem;">
+              <a href="contact.html" class="btn btn-primary btn-small" data-i18n="requestQuote">Angebot anfordern</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 SAID Bau. <span data-i18n="footer_copyright">Alle Rechte vorbehalten</span>.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

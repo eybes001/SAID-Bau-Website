@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Specific sitemaps
+Sitemap: https://www.said-bau.de/sitemap.xml
+
+# Disallow admin and private folders if they exist
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important pages
+Allow: /index.html
+Allow: /about.html
+Allow: /services.html
+Allow: /projects.html
+Allow: /contact.html
+
+# Allow assets
+Allow: /assets/
+
+# Limit crawl rate
+Crawl-delay: 1

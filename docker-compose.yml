@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: said-bau-db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - said-bau-network
+
+  # WordPress Application
+  wordpress:
+    image: wordpress:latest
+    container_name: said-bau-wordpress
+    restart: always
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DEBUG: true
+      WORDPRESS_DEBUG_DISPLAY: false
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_MEMORY_LIMIT', '256M');
+        define('WP_MAX_MEMORY_LIMIT', '512M');
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./wordpress-plugins:/var/www/html/wp-content/plugins/custom-plugins
+    networks:
+      - said-bau-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/wp-admin/admin-ajax.php"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # phpMyAdmin for Database Management (Optional)
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: said-bau-phpmyadmin
+    restart: always
+    ports:
+      - "8001:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: wordpress
+      PMA_PASSWORD: wordpress
+    depends_on:
+      - db
+    networks:
+      - said-bau-network
+
+volumes:
+  db_data:
+    driver: local
+  wordpress_data:
+    driver: local
+
+networks:
+  said-bau-network:
+    driver: bridge

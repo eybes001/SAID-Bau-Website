@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontaktieren Sie SAID Bau - Professionelle Renovierungsdienstleistungen">
+  <meta name="keywords" content="Kontakt, Anfrage, Angebot, Renovierung">
+  
+  <title>Kontakt - SAID Bau</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        🏗️ SAID Bau
+      </a>
+      
+      <ul class="navbar-nav">
+        <li><a href="index.html" data-i18n="home">Startseite</a></li>
+        <li><a href="about.html" data-i18n="about">Über Uns</a></li>
+        <li><a href="services.html" data-i18n="services">Dienstleistungen</a></li>
+        <li><a href="projects.html" data-i18n="projects">Projekte</a></li>
+        <li><a href="contact.html" class="active" data-i18n="contact">Kontakt</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <select id="languageSelector" class="language-selector">
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+        </select>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="padding: 4rem 0;">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="contact_page_title">Kontaktieren Sie uns</h1>
+        <p class="subtitle" data-i18n="contact_page_text">Haben Sie Fragen zu unseren Dienstleistungen? Senden Sie uns eine Nachricht oder rufen Sie direkt an.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-wrapper">
+        <!-- CONTACT FORM -->
+        <div class="fade-in">
+          <h2 style="margin-bottom: 1.5rem;">Kontaktformular</h2>
+          
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name" data-i18n="contact_form_name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Ihr Name" data-i18n="contact_form_name">
+            </div>
+
+            <div class="form-group">
+              <label for="email" data-i18n="contact_form_email">E-Mail</label>
+              <input type="email" id="email" name="email" required placeholder="Ihre E-Mail" data-i18n="contact_form_email">
+            </div>
+
+            <div class="form-group">
+              <label for="phone" data-i18n="contact_form_phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="Ihre Telefonnummer">
+            </div>
+
+            <div class="form-group">
+              <label for="service" data-i18n="contact_form_service">Dienstleistung</label>
+              <select id="service" name="service">
+                <option value="">-- Dienstleistung wählen --</option>
+                <option value="interior" data-i18n="service_interior">Innenrenovierungen</option>
+                <option value="apartments" data-i18n="service_apartments">Wohnungsrenovierung</option>
+                <option value="painting" data-i18n="service_painting">Malerarbeiten & Verputz</option>
+                <option value="flooring" data-i18n="service_flooring">Bodenbeläge</option>
+                <option value="drywall" data-i18n="service_drywall">Trockenbau</option>
+                <option value="bathroom" data-i18n="service_bathroom">Badezimmerrenovierung</option>
+                <option value="kitchen" data-i18n="service_kitchen">Kücheninstallation</option>
+                <option value="repairs" data-i18n="service_repairs">Reparaturen & Ausbesserungen</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" data-i18n="contact_form_message">Nachricht</label>
+              <textarea id="message" name="message" required placeholder="Ihre Nachricht..." data-i18n="contact_form_message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit" data-i18n="contact_form_submit">Nachricht senden</button>
+          </form>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="contact-info fade-in">
+          <h2 style="margin-bottom: 1.5rem;">Kontaktinformationen</h2>
+
+          <div class="info-box">
+            <h3>📞 <span data-i18n="contact_phone">Telefon</span></h3>
+            <p>
+              <a href="tel:+49-0-123-456789">+49 (0) 123 456789</a>
+            </p>
+            <p style="font-size: 0.85rem; color: var(--light-text); margin-top: 0.5rem;">
+              Montag - Freitag: 08:00 - 18:00 Uhr<br>
+              Samstag: 09:00 - 13:00 Uhr
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h3>📧 <span data-i18n="contact_email">E-Mail</span></h3>
+            <p>
+              <a href="mailto:info@said-bau.de">info@said-bau.de</a>
+            </p>
+            <p style="font-size: 0.85rem; color: var(--light-text); margin-top: 0.5rem;">
+              Wir antworten innerhalb von 24 Stunden
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h3>📍 <span data-i18n="contact_area">Servicegebiet</span></h3>
+            <p data-i18n="contact_area_text">Ganz Deutschland</p>
+            <p style="font-size: 0.85rem; color: var(--light-text); margin-top: 0.5rem;">
+              Wir arbeiten bundesweit in allen Bundesländern
+            </p>
+          </div>
+
+          <div class="info-box">
+            <h3>🎯 Kostenfreie Besichtigung</h3>
+            <p>Wir bieten kostenlose Vor-Ort-Besichtigungen und Beratungen an.</p>
+            <p style="font-size: 0.85rem; color: var(--light-text); margin-top: 0.5rem;">
+              Kontaktieren Sie uns für einen Termin
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK CONTACT SECTION -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Noch Fragen?</h2>
+        <p>Häufig gestellte Fragen zu unseren Dienstleistungen</p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="service-card fade-in">
+          <h3>Wie lange dauert die Planung?</h3>
+          <p>Die Planung dauert in der Regel 1-4 Wochen, abhängig von der Komplexität des Projekts. Wir führen eine detaillierte Besichtigung durch und erstellen maßgeschneiderte Angebote.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <h3>Bietet ihr Notfallservice an?</h3>
+          <p>Ja, für dringende Reparaturen bieten wir einen 24/7-Notfallservice an. Kontaktieren Sie uns direkt für schnelle Hilfe.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <h3>Wie lange ist die Garantie?</h3>
+          <p>Wir bieten eine umfassende Garantie auf alle Arbeiten. Die genauen Bedingungen besprechen wir in unserem Angebot. Typischerweise geben wir 2-5 Jahre Garantie.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <h3>Können Sie auch kurzfristig Projekte durchführen?</h3>
+          <p>Ja, je nach Kapazität können wir oft kurzfristig Projekte übernehmen. Sprechen Sie uns an - wir finden gerne eine Lösung für Sie.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <h3>Wie wird das Budget kontrolliert?</h3>
+          <p>Wir erstellen detaillierte Kostenvoranschläge und nicht notwendige Mehrkosten werden vorher mit Ihnen abgeklärt. Transparente Preisgestaltung ist unser Standard.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <h3>Arbeitet ihr auch für Wohnungsunternehmen?</h3>
+          <p>Ja, wir haben umfangreiche Erfahrung mit großflächigen Projekten für Wohnungsunternehmen wie LEG und Vonovia. Wir können maßgeschneiderte Lösungen anbieten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="container">
+    <div class="cta-section">
+      <h2>Bereit zu starten?</h2>
+      <p>Senden Sie uns jetzt eine Anfrage oder rufen Sie uns direkt an</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#contactForm" class="btn btn-accent" style="font-size: 1rem; padding: 12px 28px;" data-i18n="contact_form_submit">Jetzt anfragen</a>
+        <a href="tel:+49-0-123-456789" class="btn btn-outline" style="font-size: 1rem; padding: 12px 28px;">📞 Anrufen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 data-i18n="footer_company">SAID Bau</h3>
+          <p data-i18n="footer_address">Deutschland</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem;">Professionelle Renovierungsdienstleistungen seit über 15 Jahren</p>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="home">Navigation</h3>
+          <ul>
+            <li><a href="index.html" data-i18n="home">Startseite</a></li>
+            <li><a href="about.html" data-i18n="about">Über Uns</a></li>
+            <li><a href="services.html" data-i18n="services">Dienstleistungen</a></li>
+            <li><a href="projects.html" data-i18n="projects">Projekte</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="contact">Kontakt</h3>
+          <ul>
+            <li><strong data-i18n="footer_phone">Telefon</strong>: <a href="tel:+49-0-123-456789">+49 (0) 123 456789</a></li>
+            <li><strong data-i18n="footer_email">E-Mail</strong>: <a href="mailto:info@said-bau.de">info@said-bau.de</a></li>
+            <li style="margin-top: 1rem;">
+              <a href="contact.html" class="btn btn-primary btn-small" data-i18n="requestQuote">Angebot anfordern</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 SAID Bau. <span data-i18n="footer_copyright">Alle Rechte vorbehalten</span>.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

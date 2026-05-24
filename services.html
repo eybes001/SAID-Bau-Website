@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unsere Dienstleistungen - Professionelle Renovierungen von Innenräumen bis Spezialarbeiten">
+  <meta name="keywords" content="Dienstleistungen, Renovierung, Malerarbeiten, Badezimmer, Küche">
+  
+  <title>Dienstleistungen - SAID Bau</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        🏗️ SAID Bau
+      </a>
+      
+      <ul class="navbar-nav">
+        <li><a href="index.html" data-i18n="home">Startseite</a></li>
+        <li><a href="about.html" data-i18n="about">Über Uns</a></li>
+        <li><a href="services.html" class="active" data-i18n="services">Dienstleistungen</a></li>
+        <li><a href="projects.html" data-i18n="projects">Projekte</a></li>
+        <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <select id="languageSelector" class="language-selector">
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+        </select>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="padding: 4rem 0;">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="services_page_intro">Unsere Dienstleistungen</h1>
+        <p class="subtitle" data-i18n="services_page_text">Wir bieten ein breites Spektrum an Renovierungs- und Sanierungsdienstleistungen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <!-- Service 1 -->
+        <div class="service-card fade-in">
+          <div class="service-card-icon" style="font-size: 3rem;">🏠</div>
+          <h3 data-i18n="service_interior">Innenrenovierungen</h3>
+          <p data-i18n="service_interior_desc">Komplette Innenrenovierungen mit modernem Design und hochwertigen Materialien</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">• Raumgestaltung<br>• Materialauswahl<br>• Farbkonzepte</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card fade-in">
+          <div class="service-card-icon" style="font-size: 3rem;">🏢</div>
+          <h3 data-i18n="service_apartments">Wohnungsrenovierung</h3>
+          <p data-i18n="service_apartments_desc">Professionelle Wohnungsrenovierungen speziell für Wohnungsunternehmen</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">• Großprojekte<br>• Kosteneffizienz<br>• Schnelle Umsetzung</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card fade-in">
+          <div class="service-card-icon" style="font-size: 3rem;">🎨</div>
+          <h3 data-i18n="service_painting">Malerarbeiten & Verputz</h3>
+          <p data-i18n="service_painting_desc">Fachgerechte Maler- und Putzarbeiten für alle Oberflächen</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">• Innen- & Außenmaler<br>• Tapezierung<br>• Oberflächenbehandlung</p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card fade-in">
+          <div class="service-card-icon" style="font-size: 3rem;">⬜</div>
+          <h3 data-i18n="service_flooring">Bodenbeläge</h3>
+          <p data-i18n="service_flooring_desc">Installation von Fliesen, Vinyl, Laminat und Parkettböden</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">• Fliesenverlegung<br>• Parkett & Laminat<br>• Vinyl & PVC</p>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card fade-in">
+          <div class="service-card-icon" style="font-size: 3rem;">🔨</div>
+          <h3 data-i18n="service_drywall">Trockenbau</h3>
+          <p data-i18n="service_drywall_desc">Gipskartonarbeiten und Wandkonstruktionen</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">• Wandkonstruktion<br>• Deckenabhängung<br>• Schallschutz</p>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card fade-in">
+          <div class="service-card-icon" style="font-size: 3rem;">🚿</div>
+          <h3 data-i18n="service_bathroom">Badezimmerrenovierung</h3>
+          <p data-i18n="service_bathroom_desc">Moderne Badezimmerausstattungen und komplette Umgestaltungen</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">• Sanitärinstallation<br>• Fliesenarbeiten<br>• Badmöbel</p>
+        </div>
+
+        <!-- Service 7 -->
+        <div class="service-card fade-in">
+          <div class="service-card-icon" style="font-size: 3rem;">🍳</div>
+          <h3 data-i18n="service_kitchen">Kücheninstallation</h3>
+          <p data-i18n="service_kitchen_desc">Hochwertige Kücheninstallationen und Einbauten</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">• Kücheneinbau<br>• Elektrik & Wasser<br>• Oberflächenfinish</p>
+        </div>
+
+        <!-- Service 8 -->
+        <div class="service-card fade-in">
+          <div class="service-card-icon" style="font-size: 3rem;">🔧</div>
+          <h3 data-i18n="service_repairs">Reparaturen & Ausbesserungen</h3>
+          <p data-i18n="service_repairs_desc">Handwerkliche Reparaturen und hochwertige Ausbesserungen</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--light-text);">• Schadensreparatur<br>• Wartung<br>• Instandhaltung</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED SERVICES SECTION -->
+  <section class="section" style="background-color: #f5f5f5;">
+    <div class="container">
+      <h2 style="margin-bottom: 2rem;">Unsere Leistungen im Detail</h2>
+
+      <div class="grid grid-2" style="gap: 3rem;">
+        <div class="fade-in">
+          <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Umfassende Beratung</h3>
+          <p>Wir beginnen mit einer ausführlichen Beratung, um Ihre Anforderungen vollständig zu verstehen. Unser Team unterstützt Sie bei der Planung und gibt Empfehlungen für Materialien und Designs.</p>
+          <ul style="margin: 1rem 0; list-style-position: inside;">
+            <li>Kostenlose Besichtigung</li>
+            <li>Detaillierte Angebote</li>
+            <li>Fachberatung</li>
+          </ul>
+        </div>
+
+        <div class="fade-in">
+          <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Professionelle Ausführung</h3>
+          <p>Mit unserem erfahrenen Team führen wir jedes Projekt mit höchster Sorgfalt durch. Wir halten strikte Zeitpläne und Budgetvorgaben ein.</p>
+          <ul style="margin: 1rem 0; list-style-position: inside;">
+            <li>Zertifizierte Handwerker</li>
+            <li>Moderne Ausrüstung</li>
+            <li>Qualitätskontrolle</li>
+          </ul>
+        </div>
+
+        <div class="fade-in">
+          <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Garantie & Nachbetreuung</h3>
+          <p>Nach Abschluss des Projekts bieten wir umfassende Garantien an und stehen für eventuelle Wartungen zur Verfügung.</p>
+          <ul style="margin: 1rem 0; list-style-position: inside;">
+            <li>Umfassende Garantie</li>
+            <li>Wartungsservice</li>
+            <li>Notfalleinsätze</li>
+          </ul>
+        </div>
+
+        <div class="fade-in">
+          <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Flexible Partnerschaften</h3>
+          <p>Egal ob Einzelprojekt oder langfristige Partnerschaft - wir passen unsere Leistungen an Ihre Bedürfnisse an.</p>
+          <ul style="margin: 1rem 0; list-style-position: inside;">
+            <li>Einzelprojekte</li>
+            <li>Daueraufträge</li>
+            <li>Notfallservice</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Warum Sie uns wählen sollten</h2>
+      </div>
+
+      <div class="why-choose-grid">
+        <div class="why-item fade-in">
+          <div class="why-item-icon">✓</div>
+          <div class="why-item-text">
+            <h3>Erfahrung</h3>
+            <p>Über 700 erfolgreich abgeschlossene Projekte</p>
+          </div>
+        </div>
+
+        <div class="why-item fade-in">
+          <div class="why-item-icon">🏆</div>
+          <div class="why-item-text">
+            <h3>Qualität</h3>
+            <p>Hochwertige Materialien und Handwerk</p>
+          </div>
+        </div>
+
+        <div class="why-item fade-in">
+          <div class="why-item-icon">⏰</div>
+          <div class="why-item-text">
+            <h3>Pünktlichkeit</h3>
+            <p>Termingerechte Abwicklung garantiert</p>
+          </div>
+        </div>
+
+        <div class="why-item fade-in">
+          <div class="why-item-icon">💰</div>
+          <div class="why-item-text">
+            <h3>Transparenz</h3>
+            <p>Klare Kalkulationen ohne Überraschungen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="container">
+    <div class="cta-section">
+      <h2>Interessiert an unseren Dienstleistungen?</h2>
+      <p>Kontaktieren Sie uns noch heute für ein kostenfreies Angebot</p>
+      <a href="contact.html" class="btn btn-accent" style="font-size: 1.1rem; padding: 14px 32px;" data-i18n="requestQuote">Angebot anfordern</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 data-i18n="footer_company">SAID Bau</h3>
+          <p data-i18n="footer_address">Deutschland</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem;">Professionelle Renovierungsdienstleistungen seit über 15 Jahren</p>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="home">Navigation</h3>
+          <ul>
+            <li><a href="index.html" data-i18n="home">Startseite</a></li>
+            <li><a href="about.html" data-i18n="about">Über Uns</a></li>
+            <li><a href="services.html" data-i18n="services">Dienstleistungen</a></li>
+            <li><a href="projects.html" data-i18n="projects">Projekte</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 data-i18n="contact">Kontakt</h3>
+          <ul>
+            <li><strong data-i18n="footer_phone">Telefon</strong>: +49 (0) 123 456789</li>
+            <li><strong data-i18n="footer_email">E-Mail</strong>: <a href="mailto:info@said-bau.de">info@said-bau.de</a></li>
+            <li style="margin-top: 1rem;">
+              <a href="contact.html" class="btn btn-primary btn-small" data-i18n="requestQuote">Angebot anfordern</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 SAID Bau. <span data-i18n="footer_copyright">Alle Rechte vorbehalten</span>.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
