@@ -31,7 +31,28 @@ jobs:
           set -e
           
           echo "🚀 Starting FTP deployment..."
+          
+          # Validate FTP credentials exist
+          if [ -z "$FTP_HOST" ]; then
+            echo "❌ ERROR: FTP_SERVER secret is not set or empty"
+            exit 1
+          fi
+          if [ -z "$FTP_USER" ]; then
+            echo "❌ ERROR: FTP_USERNAME secret is not set or empty"
+            exit 1
+          fi
+          if [ -z "$FTP_PASS" ]; then
+            echo "❌ ERROR: FTP_PASSWORD secret is not set or empty"
+            exit 1
+          fi
+          
+          # Clean FTP host (remove common prefixes if present)
+          FTP_HOST="${FTP_HOST#ftp://}"
+          FTP_HOST="${FTP_HOST#sftp://}"
+          FTP_HOST="${FTP_HOST%/}"
+          
           echo "📍 Target: $FTP_HOST"
+          echo "👤 User: $FTP_USER"
           
           # Create FTP deployment script
           cat > /tmp/deploy.lftp << 'LFTP_EOF'
@@ -48,10 +69,17 @@ jobs:
           LFTP_EOF
           
           # Execute FTP deployment
-          lftp -f /tmp/deploy.lftp || {
+          if lftp -f /tmp/deploy.lftp; then
+            echo "✅ FTP connection successful"
+          else
             echo "❌ FTP deployment failed"
+            echo "Troubleshooting steps:"
+            echo "1. Verify FTP_SERVER is correct (should be hostname or IP, no ftp:// prefix)"
+            echo "2. Verify FTP_USERNAME is correct"
+            echo "3. Verify FTP_PASSWORD is correct"
+            echo "4. Ensure FTP/SFTP is enabled on your hosting account"
             exit 1
-          }
+          fi
           
           echo "✅ Deployment completed successfully"
 
