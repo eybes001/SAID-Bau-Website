@@ -1,22 +1,4 @@
-# Enable mod_rewrite
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-    
-    # Remove .html extension from URLs (optional - for clean URLs)
-    # RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteRule ^([^\.]+)$ $1.html [NC, L]
-    
-    # Redirect www to non-www (optional)
-    # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    # RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [R=301,QSA,L]
-    
-    # Force HTTPS (optional - uncomment if needed)
-    # RewriteCond %{HTTPS} off
-    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
-
+# Performance and optimization
 # Browser caching
 <IfModule mod_expires.c>
     ExpiresActive On
