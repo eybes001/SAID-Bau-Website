@@ -1,4 +1,4 @@
-name: Deploy to WordPress Site
+name: Production Deployment - SAID Bau Website
 
 on:
   push:
@@ -11,18 +11,25 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Clone repository
+      - name: Clone latest code
         run: |
           git clone --depth 1 https://github.com/eybes001/SAID-Bau-Website.git /tmp/repo
-          cd /tmp/repo
+          echo "✓ Repository cloned successfully"
 
-      - name: Set up FTP deployment
+      - name: Prepare deployment
+        run: |
+          cd /tmp/repo
+          echo "📦 Deployment Package Ready:"
+          echo "  • HTML files: $(find . -maxdepth 1 -name '*.html' | wc -l)"
+          echo "  • Total size: $(du -sh . | cut -f1)"
+
+      - name: Install FTP tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq lftp curl
-          echo "✓ FTP tools installed successfully"
+          sudo apt-get install -y -qq lftp
+          echo "✓ FTP tools ready"
 
-      - name: Deploy files to server
+      - name: Deploy to Hostinger
         env:
           FTP_HOST: ${{ secrets.FTP_SERVER }}
           FTP_USER: ${{ secrets.FTP_USERNAME }}
@@ -30,94 +37,71 @@ jobs:
         run: |
           set -e
           
-          echo "🚀 Starting FTP deployment..."
-          
-          # Validate FTP credentials exist
-          if [ -z "$FTP_HOST" ]; then
-            echo "❌ ERROR: FTP_SERVER secret is not set or empty"
-            exit 1
-          fi
-          if [ -z "$FTP_USER" ]; then
-            echo "❌ ERROR: FTP_USERNAME secret is not set or empty"
-            exit 1
-          fi
-          if [ -z "$FTP_PASS" ]; then
-            echo "❌ ERROR: FTP_PASSWORD secret is not set or empty"
-            exit 1
-          fi
-          
-          # Clean FTP host (remove common prefixes if present)
+          # Clean hostname
           FTP_HOST="${FTP_HOST#ftp://}"
-          FTP_HOST="${FTP_HOST#sftp://}"
           FTP_HOST="${FTP_HOST%/}"
           
-          echo "📍 Target: $FTP_HOST"
-          echo "👤 User: $FTP_USER"
+          echo "════════════════════════════════════════"
+          echo "🚀 SAID Bau - Production Deployment"
+          echo "════════════════════════════════════════"
+          echo "Server: $FTP_HOST"
+          echo "Target: /public_html/"
+          echo "════════════════════════════════════════"
           
-          # Deploy using lftp with direct command execution
-          echo "🔗 Connecting to FTP server..."
+          # Deploy with retry logic
+          deploy_attempt() {
+            lftp -c "
+              set ftp:ssl-allow no
+              set net:max-retries 10
+              set net:timeout 120
+              set ftp:passive-mode on
+              open -u $FTP_USER,$FTP_PASS $FTP_HOST
+              cd /public_html
+              lcd /tmp/repo
+              mirror -Rv --exclude-glob .git* --exclude-glob .github* ./ ./
+              bye
+            "
+            return $?
+          }
           
-          # Test FTP connection first
-          echo "Testing FTP connectivity..."
-          lftp << TEST_CONNECTION
-          set ftp:ssl-allow no
-          set net:max-retries 5
-          set net:timeout 60
-          set ftp:passive-mode on
-          open -u "$FTP_USER","$FTP_PASS" "$FTP_HOST"
-          quit
-          TEST_CONNECTION
-          
-          if [ $? -ne 0 ]; then
-            echo "⚠️  Initial connection test failed, retrying with extended timeout..."
-            sleep 5
-          fi
-          
-          # Perform actual deployment
-          echo "Starting file transfer..."
-          lftp << LFTP_COMMANDS
-          set ftp:ssl-allow no
-          set net:max-retries 10
-          set net:timeout 120
-          set ftp:passive-mode on
-          open -u "$FTP_USER","$FTP_PASS" "$FTP_HOST"
-          lcd /tmp/repo
-          cd /public_html
-          mirror -Rv --exclude-glob .git* --exclude-glob .github* --exclude-glob node_modules* --exclude-glob wp-* --exclude-glob wp-content* ./ ./
-          quit
-          LFTP_COMMANDS
-          
-          if [ $? -eq 0 ]; then
-            echo "✅ FTP connection and deployment successful"
-          else
-            echo "❌ FTP deployment failed"
+          # Try deployment
+          if deploy_attempt; then
             echo ""
-            echo "Troubleshooting steps:"
-            echo "1. Verify FTP_SERVER is correct (should be IP or hostname, no ftp:// prefix)"
-            echo "   Current: $FTP_HOST"
-            echo "2. Verify FTP_USERNAME is correct"
-            echo "3. Verify FTP_PASSWORD is correct"
-            echo "4. Ensure FTP is enabled on your hosting account"
-            echo "5. Ensure /public_html/ directory exists on your server"
-            exit 1
+            echo "✅ DEPLOYMENT SUCCESSFUL"
+            exit 0
+          else
+            echo "⚠️  First attempt failed, retrying..."
+            sleep 10
+            if deploy_attempt; then
+              echo ""
+              echo "✅ DEPLOYMENT SUCCESSFUL (Retry)"
+              exit 0
+            else
+              echo "❌ DEPLOYMENT FAILED"
+              exit 1
+            fi
           fi
-          
-          echo "✅ Deployment completed successfully"
 
-      - name: Verify deployment
-        run: |
-          echo "📦 Deployment Summary:"
-          echo "  - Repository: SAID-Bau-Website"
-          echo "  - Branch: main"
-          echo "  - Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
-          echo "✓ Files have been deployed to your WordPress site"
-          echo ""
-          echo "📋 Files deployed:"
-          find /tmp/repo -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.json" \) | head -20
-
-      - name: Deployment notification
+      - name: Deployment complete
         if: success()
-        run: echo "🎉 Deployment successful! Your site should update within 5 minutes."
+        run: |
+          echo ""
+          echo "╔════════════════════════════════════════╗"
+          echo "║ ✅ DEPLOYMENT COMPLETED SUCCESSFULLY ║"
+          echo "╚════════════════════════════════════════╝"
+          echo ""
+          echo "📊 Details:"
+          echo "  Website: https://saidbau.com"
+          echo "  Deployed: $(date)"
+          echo ""
+          echo "🔍 Next:"
+          echo "  1. Visit https://saidbau.com"
+          echo "  2. Verify all pages load"
+          echo "  3. Check contact email: info@saidbau.com"
+          echo ""
+          echo "📝 Update website: git push origin main"
+          echo ""
+
 
       - name: Deployment failed
         if: failure()
