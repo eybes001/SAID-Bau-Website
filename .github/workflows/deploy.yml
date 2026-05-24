@@ -56,10 +56,29 @@ jobs:
           
           # Deploy using lftp with direct command execution
           echo "🔗 Connecting to FTP server..."
+          
+          # Test FTP connection first
+          echo "Testing FTP connectivity..."
+          lftp << TEST_CONNECTION
+          set ftp:ssl-allow no
+          set net:max-retries 5
+          set net:timeout 60
+          set ftp:passive-mode on
+          open -u "$FTP_USER","$FTP_PASS" "$FTP_HOST"
+          quit
+          TEST_CONNECTION
+          
+          if [ $? -ne 0 ]; then
+            echo "⚠️  Initial connection test failed, retrying with extended timeout..."
+            sleep 5
+          fi
+          
+          # Perform actual deployment
+          echo "Starting file transfer..."
           lftp << LFTP_COMMANDS
           set ftp:ssl-allow no
-          set net:max-retries 3
-          set net:timeout 30
+          set net:max-retries 10
+          set net:timeout 120
           set ftp:passive-mode on
           open -u "$FTP_USER","$FTP_PASS" "$FTP_HOST"
           lcd /tmp/repo
