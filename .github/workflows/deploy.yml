@@ -54,30 +54,32 @@ jobs:
           echo "📍 Target: $FTP_HOST"
           echo "👤 User: $FTP_USER"
           
-          # Create FTP deployment script
-          cat > /tmp/deploy.lftp << 'LFTP_EOF'
+          # Deploy using lftp with direct command execution
+          echo "🔗 Connecting to FTP server..."
+          lftp << LFTP_COMMANDS
           set ftp:ssl-allow no
           set net:max-retries 3
           set net:timeout 30
           set ftp:passive-mode on
-          
-          open -u $FTP_USER,$FTP_PASS $FTP_HOST
+          open -u "$FTP_USER","$FTP_PASS" "$FTP_HOST"
           lcd /tmp/repo
           cd /public_html
           mirror -eRvL --exclude-glob .git* --exclude-glob .github* --exclude-glob node_modules* ./ ./
           quit
-          LFTP_EOF
+          LFTP_COMMANDS
           
-          # Execute FTP deployment
-          if lftp -f /tmp/deploy.lftp; then
-            echo "✅ FTP connection successful"
+          if [ $? -eq 0 ]; then
+            echo "✅ FTP connection and deployment successful"
           else
             echo "❌ FTP deployment failed"
+            echo ""
             echo "Troubleshooting steps:"
-            echo "1. Verify FTP_SERVER is correct (should be hostname or IP, no ftp:// prefix)"
+            echo "1. Verify FTP_SERVER is correct (should be IP or hostname, no ftp:// prefix)"
+            echo "   Current: $FTP_HOST"
             echo "2. Verify FTP_USERNAME is correct"
             echo "3. Verify FTP_PASSWORD is correct"
-            echo "4. Ensure FTP/SFTP is enabled on your hosting account"
+            echo "4. Ensure FTP is enabled on your hosting account"
+            echo "5. Ensure /public_html/ directory exists on your server"
             exit 1
           fi
           
